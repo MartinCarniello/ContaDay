@@ -54,8 +54,9 @@ class CompaniesController < ApplicationController
 	def general_expenses
 		@company = Company.find(params[:id])
 		@company_user = @company.company_users.not_deleted.find_by(user_id: current_user.id)
-		@general_expenses = @company.general_expenses
+		@general_expenses = @company.general_expenses.order_date_desc.page(params[:page])
 		@new_general_expense = GeneralExpense.new(company_user: @company_user)
+		gon.general_expenses_names = @company.general_expenses.distinct_names.map(&:expense_name)
 	end
 
 	private

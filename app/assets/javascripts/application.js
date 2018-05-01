@@ -16,6 +16,7 @@
 //= require jquery.minicolors
 //= require inputmask.min
 //= require inputmask.numeric.extensions.min
+//= require jquery-ui.min
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

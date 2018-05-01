@@ -12,6 +12,7 @@
  *
  *= require font-awesome
  *= require jquery.minicolors
+ *= require jquery-ui.min
  *= require_tree .
  *= require_self
  */

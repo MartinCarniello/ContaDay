@@ -7,4 +7,12 @@ $( document ).on('turbolinks:load', function() {
 	}).datepicker("setDate",'now');
 
 	$('.js-company-user-color').minicolors();
+
+	initialize_autocomplete();
 })
+
+function initialize_autocomplete() {
+	$("#general_expense_expense_name").autocomplete({
+    source: gon.general_expenses_names
+  });
+}

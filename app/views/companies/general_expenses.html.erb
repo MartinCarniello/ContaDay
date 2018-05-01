@@ -1,4 +1,4 @@
-<%= form_for @new_general_expense, remote: true do |f| %>
+<%= form_for @new_general_expense do |f| %>
   <div class="row mt-3 mb-2">
     <div class="col-12">
       <h5>Nuevo Gasto</h5>
@@ -61,6 +61,8 @@
             <% end %>
           </tbody>
         </table>
+
+        <%= paginate @general_expenses %>
       </div>
     </div>
   </div>
