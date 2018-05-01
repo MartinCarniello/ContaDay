@@ -13,6 +13,7 @@
 //= require jquery-3.3.1.min
 //= require bootstrap.min
 //= require bootstrap-datepicker.min
+//= require jquery.minicolors
 //= require inputmask.min
 //= require inputmask.numeric.extensions.min
 //= require rails-ujs

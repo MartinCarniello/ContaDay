@@ -16,17 +16,26 @@
       <div class="card-body">
         <% @companies.each do |company| %>
           <div class="card">
-            <div class="card-header" data-toggle="collapse" data-target="#company-<%= company.id %>">
-              <h5 class="mb-0">
-                <%= company.name %>
-              </h5>
+            <div class="card-header">
+              <div class="row">
+                <div class="col-10" data-toggle="collapse" data-target="#company-<%= company.id %>">
+                  <h5 class="mb-0">
+                    <%= company.name %>
+                  </h5>
+                </div>
+                <div class="col-2 text-right">
+                  <% if company.is_member?(current_user) %>
+                    <%= link_to fa_icon("chevron-circle-right"), general_expenses_company_path(company), class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
             </div>
 
             <div id="company-<%= company.id %>" class="collapse" data-parent="#accordion">
               <div class="card-body">
                 <ul>
                   <% company.company_users.not_deleted.each do |company_user| %>
-                    <li><%= company_user.display_name %></li>
+                    <li><%= company_user.user_display_name %></li>
                   <% end %>
                 </ul>
 

@@ -3,6 +3,23 @@ class CompaniesController < ApplicationController
 		@companies = Company.includes(company_users: :user).all
 	end
 
+	def edit
+		@company = Company.find(params[:id])
+		@company_users = @company.company_users
+	end
+
+	def update
+		@company = Company.find(params[:id])
+
+		if @company.update_attributes(company_params)
+			flash[:notice] = "Información de la compañía guardada correctamente"
+		else
+			flash[:danger] = "Hubo un problema al guardar la compañía"
+		end
+
+		redirect_to edit_company_path(@company)
+	end
+
 	def access
 		@company = Company.find(params[:id])
 		@company_user = @company.company_users.where(user_id: current_user.id).first_or_initialize
@@ -44,6 +61,6 @@ class CompaniesController < ApplicationController
 	private
 
 	def company_params
-		params.require(:company).permit(:name, :description)
+		params.require(:company).permit(:name, :description, company_users_attributes: [:id, :color])
 	end
 end

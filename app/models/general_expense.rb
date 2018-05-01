@@ -4,4 +4,6 @@ class GeneralExpense < ApplicationRecord
 	has_one :company, through: :company_user
 
 	validates :expense_name, :cost, :date_time, :company_user, presence: true
+
+	delegate :color, to: :company_user, prefix: true
 end

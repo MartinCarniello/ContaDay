@@ -3,24 +3,27 @@
     <div class="col-12">
       <h5>Nuevo Gasto</h5>
       <div class="row">
-        <div class="col-6 pr-1">
+        <div class="col-7 pr-1">
           <%= f.text_field :expense_name, class: "form-control", autofocus: true, placeholder: "Nombre", required: true %>
         </div>
-        <div class="col-2 pl-1 pr-1">
+        <div class="col-5 pl-1">
           <%= f.text_field :cost, class: "form-control", placeholder: "Costo", required: true %>
-        </div>
-        <div class="col-4 pl-1">
-          <%= f.text_field :date_time, class: "form-control", placeholder: "Fecha", required: true %>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-8 pr-1">
+  <div class="row mb-2">
+    <div class="col-7 pr-1">
       <%= f.text_area :expense_description, class: "form-control", placeholder: "Descripción" %>
     </div>
-    <div class="col-4 pl-1">
+    <div class="col-5 pl-1">
+      <%= f.text_field :date_time, class: "form-control h-100", placeholder: "Fecha", required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
       <%= f.hidden_field :company_id, value: @company.id %>
       <%= f.submit "Crear", class: "btn btn-block btn-success h-100" %>
     </div>
@@ -34,13 +37,16 @@
     <div class="card">
       <div class="card-header bg-secondary">
         <div class="row">
-          <div class="col-12">
+          <div class="col-8">
             <h4>Gastos</h4>
+          </div>
+          <div class="col-4 text-right">
+            <%= link_to fa_icon("cog"), edit_company_path(@company), class: "btn btn-warning" %>
           </div>
         </div>
       </div>
       <div class="card-body">
-        <table class="table table-striped js-general-expenses-table">
+        <table class="table js-general-expenses-table">
           <thead>
             <tr>
               <th scope="col">Nombre</th>

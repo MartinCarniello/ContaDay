@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_01_134125) do
+ActiveRecord::Schema.define(version: 2018_05_01_204207) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_134125) do
     t.integer "user_id"
     t.integer "company_id"
     t.boolean "deleted", default: false
+    t.string "color"
     t.index ["company_id"], name: "index_company_users_on_company_id"
     t.index ["user_id"], name: "index_company_users_on_user_id"
   end

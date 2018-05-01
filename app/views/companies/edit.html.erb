@@ -1,0 +1,47 @@
+<%= form_for @company do |company_form| %>
+  <div class="row mt-3">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row">
+            <div class="col-12">
+              <h4>Editar Compañía</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <%= company_form.text_field :name, autofocus: true, class: "form-control", required: true %>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Descripción</label>
+            <%= company_form.text_field :description, class: "form-control" %>
+          </div>
+
+          <hr>
+
+          <h5>Integrantes</h5>
+
+          <%= company_form.fields_for :company_users, @company.company_users do |company_user_fields| %>
+            <div class="row">
+              <div class="col">
+                <strong><%= company_user_fields.object.user_display_name %></strong>
+              </div>
+              <div class="col">
+                <%= company_user_fields.text_field :color, class: "form-control js-company-user-color" %>
+              </div>
+            </div>
+          <% end %>
+          <br>
+
+          <div class="actions">
+            <%= company_form.submit "Guardar", class: "btn btn-primary" %>
+            <%= link_to "Ir a gastos", general_expenses_company_path(@company) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
