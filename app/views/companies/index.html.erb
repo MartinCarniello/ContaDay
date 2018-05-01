@@ -1,0 +1,51 @@
+<div class="row mt-3">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header bg-secondary">
+        <div class="row">
+          <div class="col-8">
+            <h4>Compañías</h4>
+          </div>
+          <div class="col-4">
+            <div class="text-right">
+              <%= link_to "Crear", new_company_path, class: "btn btn-sm btn-info" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <% @companies.each do |company| %>
+          <div class="card">
+            <div class="card-header" data-toggle="collapse" data-target="#company-<%= company.id %>">
+              <h5 class="mb-0">
+                <%= company.name %>
+              </h5>
+            </div>
+
+            <div id="company-<%= company.id %>" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                <ul>
+                  <% company.company_users.not_deleted.each do |company_user| %>
+                    <li><%= company_user.display_name %></li>
+                  <% end %>
+                </ul>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="text-right">
+                      <% if company.is_member?(current_user) %>
+                        <%= link_to "Salir", quit_company_path(company), class: "btn btn-sm btn-danger", data: { confirm: "Estás seguro?", method: "delete" } %>
+                      <% else %>
+                        <%= link_to "Ingresar", access_company_path(company), class: "btn btn-sm btn-success", data: { confirm: "Estás seguro?", method: "post" } %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h5>Registro</h5>
+      </div>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="form-group">
+            <label for="first_name">Nombre</label>
+            <%= f.text_field :first_name, autofocus: true, class: "form-control", required: true %>
+          </div>
+
+          <div class="form-group">
+            <label for="last_name">Apellido</label>
+            <%= f.text_field :last_name, class: "form-control", required: true %>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <%= f.email_field :email, autocomplete: "email", class: "form-control", required: true %>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", required: true %>
+          </div>
+
+          <div class="form-group">
+            <label for="password_confirmation">Confirmar Contraseña</label>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", required: true %>
+          </div>
+
+          <br>
+
+          <div class="actions">
+            <%= f.submit "Registrar", class: "btn btn-primary" %>
+            <%= link_to "Ir a acceder", new_user_session_path %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

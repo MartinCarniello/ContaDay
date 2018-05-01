@@ -1,0 +1,5 @@
+<tr>
+	<td><%= general_expense.expense_name %></td>
+	<td><%= number_to_currency(general_expense.cost, strip_insignificant_zeros: true) %></td>
+	<td><%= general_expense.date_time.strftime('%d/%m/%y') %></td>
+</tr>

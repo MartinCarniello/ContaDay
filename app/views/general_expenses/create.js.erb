@@ -1,0 +1,4 @@
+$("#general_expense_expense_name").val("");
+$("#general_expense_cost").val("");
+$("#general_expense_expense_name").focus();
+$(".js-general-expenses-table tbody").append("<%= escape_javascript(render partial: 'general_expenses/general_expense', locals: { general_expense: @general_expense }) %>");
