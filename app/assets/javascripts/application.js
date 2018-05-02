@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery-3.3.1.min
+//= require popper.min
 //= require bootstrap.min
 //= require bootstrap-datepicker.min
 //= require jquery.minicolors

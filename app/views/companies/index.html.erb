@@ -18,14 +18,14 @@
           <div class="card">
             <div class="card-header">
               <div class="row">
-                <div class="col-10" data-toggle="collapse" data-target="#company-<%= company.id %>">
+                <div class="col-9" data-toggle="collapse" data-target="#company-<%= company.id %>">
                   <h5 class="mb-0">
                     <%= company.name %>
                   </h5>
                 </div>
-                <div class="col-2 text-right">
+                <div class="col-3 text-right">
                   <% if company.is_member?(current_user) %>
-                    <%= link_to fa_icon("chevron-circle-right"), general_expenses_company_path(company), class: "btn btn-primary" %>
+                    <%= link_to fa_icon("chevron-circle-right"), general_expenses_company_path(company), class: "btn btn-sm btn-primary" %>
                   <% end %>
                 </div>
               </div>
