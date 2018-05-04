@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def update
-		@company = Company.find(params[:id])
+		@company = current_user.companies.find_by(id: params[:id])
 
 		if @company.update_attributes(company_params)
 			flash[:notice] = "Información de la compañía guardada correctamente"
@@ -52,7 +52,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def general_expenses
-		@company = Company.find(params[:id])
+		@company = current_user.companies.find_by(id: params[:id])
 		@company_user = @company.company_users.not_deleted.find_by(user_id: current_user.id)
 		@general_expenses = @company.general_expenses.order_date_desc.page(params[:page])
 		@new_general_expense = GeneralExpense.new(company_user: @company_user)

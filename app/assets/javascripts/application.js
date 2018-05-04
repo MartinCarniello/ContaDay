@@ -22,3 +22,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+	setTimeout(function(){
+	  $('.alert-message').slideUp();
+	}, 5000);
+});

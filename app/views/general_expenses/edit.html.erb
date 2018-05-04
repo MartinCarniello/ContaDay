@@ -1,0 +1,44 @@
+<%= form_for @general_expense do |f| %>
+  <div class="row mt-3">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <div class="row">
+            <div class="col-12">
+              <h4>Editar Gasto</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <%= f.text_field :expense_name, class: "form-control", placeholder: "Nombre", required: true %>
+          </div>
+
+          <div class="form-group">
+            <label for="cost">Costo</label>
+            <%= f.text_field :cost, value: f.object.cost.to_s.gsub(".", ","), class: "form-control", placeholder: "Costo", required: true %>
+          </div>
+
+          <div class="form-group">
+            <label for="expense_description">Descripción</label>
+            <%= f.text_area :expense_description, class: "form-control", placeholder: "Descripción" %>
+          </div>
+
+          <div class="form-group">
+            <label for="date_time">Fecha</label>
+            <%= f.text_field :date_time, class: "form-control h-100", placeholder: "Fecha", required: true %>
+          </div>
+
+          <br>
+
+          <div class="actions">
+            <%= f.submit "Guardar", class: "btn btn-success" %>
+            <%= link_to "Eliminar", general_expense_path(@general_expense), method: "delete", class: "btn btn-danger", data: { confirm: "Seguro que desea eliminar el gasto?" } %>
+            <%= link_to "Ir a gastos", general_expenses_company_path(@company) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

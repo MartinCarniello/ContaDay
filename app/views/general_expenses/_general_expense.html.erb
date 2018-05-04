@@ -1,10 +1,13 @@
-<a class="list-group-item list-group-item-action flex-column align-items-start js-general-expense" style="background-color: <%= general_expense.company_user_color %>;" data-toggle="popover" title="" data-placement="top" data-content="<%= general_expense.expense_description %>">
+<div class="list-group-item list-group-item-action flex-column align-items-start js-general-expense" style="background-color: <%= general_expense.company_user_color %>;" data-toggle="popover" title="" data-placement="top" data-content="<%= general_expense.expense_description %>">
   <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1"><%= general_expense.expense_name %></h5>
-    <small><%= general_expense.date_time.strftime('%d/%m/%y') %></small>
+    <h6 class="mb-1"><strong><%= general_expense.expense_name %></strong></h6>
+    <% if general_expense.expense_description.present? %>
+  		<span class="pull-right"><%= fa_icon("comment x4") %></span>
+  	<% end %>
   </div>
   <small><strong><%= number_to_currency(general_expense.cost, strip_insignificant_zeros: true, delimiter: ".", separator: ",") %></strong></small>
-  <% if general_expense.expense_description.present? %>
-  	<small class="pull-right"><%= fa_icon("comment") %></small>
-  <% end %>
-</a>
+  <div class="pull-right">
+	  <small><%= general_expense.date_time.strftime('%d/%m/%y') %></small>
+	  <%= link_to fa_icon("pencil"), edit_general_expense_path(general_expense), class: "btn btn-sm btn-info" %>
+  </div>
+</div>
