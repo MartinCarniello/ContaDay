@@ -8,7 +8,7 @@
           </div>
           <div class="col-4">
             <div class="text-right">
-              <%= link_to "Crear", new_company_path, class: "btn btn-sm btn-info" %>
+              <%= link_to fa_icon("plus-circle", text: "Crear"), new_company_path, class: "btn btn-sm btn-success" %>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@
                   <div class="col">
                     <div class="text-right">
                       <% if company.is_member?(current_user) %>
-                        <%= link_to "Salir", quit_company_path(company), class: "btn btn-sm btn-danger", data: { confirm: "Estás seguro?", method: "delete" } %>
+                        <%= link_to fa_icon("arrow-circle-left", text: "Salir"), quit_company_path(company), class: "btn btn-sm btn-danger", data: { confirm: "Estás seguro?", method: "delete" } %>
                       <% else %>
                         <%= link_to "Ingresar", access_company_path(company), class: "btn btn-sm btn-success", data: { confirm: "Estás seguro?", method: "post" } %>
                       <% end %>

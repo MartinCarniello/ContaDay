@@ -37,7 +37,9 @@
           <br>
 
           <div class="actions">
-            <%= company_form.submit "Guardar", class: "btn btn-success" %>
+            <%= button_tag(class: "btn btn-success") do %>
+              <%= fa_icon("check", text: "Guardar") %>
+            <% end %>
             <%= link_to "Ir a gastos", general_expenses_company_path(@company) %>
           </div>
         </div>

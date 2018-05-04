@@ -33,8 +33,10 @@
           <br>
 
           <div class="actions">
-            <%= f.submit "Guardar", class: "btn btn-success" %>
-            <%= link_to "Eliminar", general_expense_path(@general_expense), method: "delete", class: "btn btn-danger", data: { confirm: "Seguro que desea eliminar el gasto?" } %>
+            <%= button_tag(class: "btn btn-success") do %>
+              <%= fa_icon("check", text: "Guardar") %>
+            <% end %>
+            <%= link_to fa_icon("trash", text: "Eliminar"), general_expense_path(@general_expense), method: "delete", class: "btn btn-danger", data: { confirm: "Seguro que desea eliminar el gasto?" } %>
             <%= link_to "Ir a gastos", general_expenses_company_path(@company) %>
           </div>
         </div>
