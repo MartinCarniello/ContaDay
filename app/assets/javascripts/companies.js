@@ -6,13 +6,17 @@ $( document ).on('turbolinks:load', function() {
     autoclose: true
 	}).datepicker("setDate",'now');
 
-	$('.js-company-user-color').minicolors();
+	$('.js-company-user-color').minicolors('settings', {
+		position: 'top right'
+	});
 
 	initialize_autocomplete();
 })
 
 function initialize_autocomplete() {
-	$("#general_expense_expense_name").autocomplete({
-    source: gon.general_expenses_names
-  });
+	if ($("#general_expense_expense_name").length > 0) {
+		$("#general_expense_expense_name").autocomplete({
+	    source: gon.general_expenses_names
+	  });
+	}
 }
