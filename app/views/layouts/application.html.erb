@@ -18,7 +18,9 @@
       <%= render partial: "layouts/navbar" %>
     <% end %>
 
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
 
     <%= include_gon %>
   </body>
