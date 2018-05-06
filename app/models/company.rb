@@ -1,6 +1,7 @@
 class Company < ApplicationRecord
 	has_many :company_users
 	has_many :general_expenses, through: :company_users
+	has_many :users, through: :company_users
 
 	validates :name, presence: true
 
