@@ -54,8 +54,8 @@ class CompaniesController < ApplicationController
 	def general_expenses
 		@company = current_user.companies.find_by(id: params[:id])
 		@company_user = @company.company_users.not_deleted.find_by(user_id: current_user.id)
-		@general_expenses_withouth_paginate = @company.general_expenses.order_date_desc
-		@general_expenses = @general_expenses_withouth_paginate.includes(:company_user).page(params[:page])
+		@general_expenses_withouth_paginate = @company.general_expenses
+		@general_expenses = @general_expenses_withouth_paginate.order_date_desc.includes(:company_user).page(params[:page])
 		@new_general_expense = GeneralExpense.new(company_user: @company_user)
 		company_users = @company.company_users.includes(:user)
 
