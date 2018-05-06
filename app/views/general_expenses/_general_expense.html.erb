@@ -1,4 +1,4 @@
-<div class="list-group-item list-group-item-action flex-column align-items-start js-general-expense" style="background-color: <%= general_expense.company_user_color %>;" data-toggle="popover" title="" data-placement="top" data-content="<%= general_expense.expense_description %>">
+<div class="list-group-item list-group-item-action flex-column align-items-start js-general-expense" style="color: <%= general_expense.company_user_text_color %>; background-color: <%= general_expense.company_user_bg_color %>;" data-toggle="popover" title="" data-placement="top" data-content="<%= general_expense.expense_description %>">
   <div class="d-flex w-100 justify-content-between">
     <h6 class="mb-1"><strong><%= general_expense.expense_name %></strong></h6>
     <% if general_expense.expense_description.present? %>

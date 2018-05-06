@@ -6,7 +6,11 @@ $( document ).on('turbolinks:load', function() {
     autoclose: true
 	}).datepicker("setDate",'now');
 
-	$('.js-company-user-color').minicolors('settings', {
+	$('.js-company-bg-user-color').minicolors('settings', {
+		position: 'top right'
+	});
+
+	$('.js-company-text-user-color').minicolors('settings', {
 		position: 'top right'
 	});
 

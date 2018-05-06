@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
   <a class="navbar-brand" href="#">ContaDay</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -27,6 +27,6 @@
         </div>
       </li>
     </ul>
-    <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+    <%= link_to fa_icon("power-off"), destroy_user_session_path, method: :delete, class: "pull-right btn btn-sm btn-danger" %>
   </div>
 </nav>

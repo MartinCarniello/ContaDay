@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 2018_05_01_204207) do
     t.integer "user_id"
     t.integer "company_id"
     t.boolean "deleted", default: false
-    t.string "color"
+    t.string "bg_color"
+    t.string "text_color"
     t.index ["company_id"], name: "index_company_users_on_company_id"
     t.index ["user_id"], name: "index_company_users_on_user_id"
   end

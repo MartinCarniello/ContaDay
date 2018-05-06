@@ -1,11 +1,11 @@
 <%= form_for @company do |company_form| %>
   <div class="row mt-3">
     <div class="col-12">
-      <div class="card">
-        <div class="card-header bg-secondary">
+      <div class="card bg-secondary text-white">
+        <div class="card-header">
           <div class="row">
             <div class="col-12">
-              <h4>Editar Compañía</h4>
+              <h5>Editar Compañía</h5>
             </div>
           </div>
         </div>
@@ -22,15 +22,16 @@
 
           <hr>
 
-          <h5>Integrantes</h5>
-
           <%= company_form.fields_for :company_users, @company.company_users do |company_user_fields| %>
             <div class="row mb-1">
               <div class="col-10">
                 <strong><%= company_user_fields.object.user_display_name %></strong>
               </div>
-              <div class="col-2">
-                <%= company_user_fields.text_field :color, class: "form-control js-company-user-color", readonly: "true", type: "hidden" %>
+              <div class="col-1">
+                <%= company_user_fields.text_field :bg_color, class: "form-control js-company-bg-user-color", readonly: "true", type: "hidden" %>
+              </div>
+              <div class="col-1">
+                <%= company_user_fields.text_field :text_color, class: "form-control js-company-text-user-color", readonly: "true", type: "hidden" %>
               </div>
             </div>
           <% end %>

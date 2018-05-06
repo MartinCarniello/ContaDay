@@ -11,16 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
 
-  <body>
+  <body style="background-color: #e2e2e2;">
     <%= render partial: "layouts/alerts" %>
 
     <% if user_signed_in? %>
       <%= render partial: "layouts/navbar" %>
     <% end %>
 
-    <div class="container-fluid">
-      <%= yield %>
-    </div>
+    <%= yield %>
 
     <%= include_gon %>
   </body>

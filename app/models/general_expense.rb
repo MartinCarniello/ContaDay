@@ -5,7 +5,7 @@ class GeneralExpense < ApplicationRecord
 
 	validates :expense_name, :cost, :date_time, :company_user, presence: true
 
-	delegate :color, to: :company_user, prefix: true
+	delegate :text_color, :bg_color, to: :company_user, prefix: true
 
 	scope :order_date_desc, -> { order('date_time DESC') }
 	scope :distinct_names, -> { select("DISTINCT expense_name") }
