@@ -44,3 +44,9 @@
 .pagination {
   display: inline-flex;
 }
+
+.link-no-styles, .link-no-styles:hover, .link-no-styles:focus {
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+}
