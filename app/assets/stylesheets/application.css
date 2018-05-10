@@ -45,8 +45,11 @@
   display: inline-flex;
 }
 
-.link-no-styles, .link-no-styles:hover, .link-no-styles:focus {
+.link-no-styles, .link-no-styles:hover {
   text-decoration: none;
   color: inherit;
-  background-color: inherit;
+}
+
+.link-no-styles.bg-warning:focus {
+  background-color: #ffc107!important;
 }
