@@ -16,5 +16,7 @@ Rails.application.routes.draw do
 
   resources :general_expenses
 
+  get 'general_reports', action: :report, controller: 'general_reports'
+
   root to: 'companies#index'
 end
