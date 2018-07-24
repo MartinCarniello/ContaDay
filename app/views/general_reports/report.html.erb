@@ -11,7 +11,7 @@
             <div class="col-12">
               <div class="row">
                 <div class="col-12">
-                  <%= select_tag "Compañías", options_from_collection_for_select(@companies, "id", "name", @companies_selected.map(&:id)), multiple: true, class: 'form-control', id: 'company_ids', name: 'company_ids[]' %>
+                  <%= select_tag "Compañías", options_from_collection_for_select(@user_companies, "id", "name", @companies_selected.map(&:id)), multiple: true, class: 'form-control', id: 'company_ids', name: 'company_ids[]' %>
                 </div>
               </div>
             </div>
