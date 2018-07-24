@@ -9,5 +9,5 @@ class GeneralExpense < ApplicationRecord
 
 	scope :order_date_desc, -> { order('date_time DESC') }
 	scope :distinct_names, -> { select("DISTINCT expense_name") }
-	scope :costs_by_users, -> { group("company_user_id").sum(:cost) }	
+	scope :costs_by_users, -> { group("company_user_id").sum(:cost) }
 end
