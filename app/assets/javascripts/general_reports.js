@@ -24,7 +24,8 @@ $(document).on('turbolinks:load', function() {
         labels: {
           fontColor: 'white'
         }
-      }
+      },
+      responsive: true
     }
   });
 
