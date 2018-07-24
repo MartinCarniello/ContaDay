@@ -10,4 +10,5 @@ class GeneralExpense < ApplicationRecord
 	scope :order_date_desc, -> { order('date_time DESC') }
 	scope :distinct_names, -> { select("DISTINCT expense_name") }
 	scope :costs_by_users, -> { group("company_user_id").sum(:cost) }
+  scope :companies, -> (companies_ids) { joins(:company).where('companies.id IN (?)', companies_ids) }
 end
